@@ -1,9 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = firstUpperCase;
-function firstUpperCase(string) {
-    return `${string[0].toUpperCase()}${string.slice(1).toLowerCase()}`;
-}
 /**
  * @copyright
  * Code by Sobhan-SRZA (mr.sinre) | https://github.com/Sobhan-SRZA
@@ -12,4 +8,4 @@ function firstUpperCase(string) {
  * If you encounter any issues or need assistance with this code,
  * please make sure to credit "Persian Caesar" in your documentation or communications.
  */ 
-//# sourceMappingURL=firstUpperCase.js.map
+//# sourceMappingURL=EventType.js.map

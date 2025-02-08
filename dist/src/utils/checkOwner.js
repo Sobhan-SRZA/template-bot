@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = checkOwner;
 const tslib_1 = require("tslib");
-const error_1 = tslib_1.__importDefault(require("./error"));
 const __1 = tslib_1.__importDefault(require("../.."));
+const error_1 = tslib_1.__importDefault(require("./error"));
 async function checkOwner(message) {
     try {
         if (!__1.default.config.bot.support.owners.includes(message.from.id))
@@ -16,11 +16,10 @@ async function checkOwner(message) {
 }
 /**
  * @copyright
- * Coded by Sobhan-SRZA (mr.sinre) | https://github.com/Sobhan-SRZA
- * @copyright
- * Work for Persian Caesar | https://dsc.gg/persian-caesar
- * @copyright
- * Please Mention Us "Persian Caesar", When Have Problem With Using This Code!
- * @copyright
+ * Code by Sobhan-SRZA (mr.sinre) | https://github.com/Sobhan-SRZA
+ * Developed for Persian Caesar | https://github.com/Persian-Caesar | https://dsc.gg/persian-caesar
+ *
+ * If you encounter any issues or need assistance with this code,
+ * please make sure to credit "Persian Caesar" in your documentation or communications.
  */ 
 //# sourceMappingURL=checkOwner.js.map

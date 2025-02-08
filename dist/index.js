@@ -37,15 +37,15 @@ const tslib_1 = require("tslib");
 // Add color to console messages.
 require("colors");
 // Support .env args
-const dotenv_1 = require("dotenv");
-(0, dotenv_1.config)();
+const dotenv = tslib_1.__importStar(require("dotenv"));
+dotenv.config();
 // Load discord client
-const os_1 = tslib_1.__importDefault(require("os"));
-const error_1 = tslib_1.__importDefault(require("./src/utils/error"));
-const post_1 = tslib_1.__importDefault(require("./src/functions/post"));
+const fs_1 = require("fs");
 const Client_1 = tslib_1.__importDefault(require("./src/classes/Client"));
 const logger_1 = tslib_1.__importDefault(require("./src/functions/logger"));
-const fs_1 = require("fs");
+const error_1 = tslib_1.__importDefault(require("./src/utils/error"));
+const post_1 = tslib_1.__importDefault(require("./src/functions/post"));
+const os_1 = tslib_1.__importDefault(require("os"));
 const client = new Client_1.default(), handle = (0, fs_1.readdirSync)(__dirname + "/src/handlers").filter(file => file.endsWith(".js"));
 // Login 
 const main = async () => {
@@ -84,12 +84,13 @@ const main = async () => {
                         .toLocaleString()} MB | ${(((os_1.default.totalmem() - os_1.default.freemem()) / os_1.default.totalmem()) * 100)
                         .toFixed(2)}%`.cyan);
                 // Upload commands to the button menu.
-                await client.telegram.setMyCommands(client.commands.map(a => {
+                const commands = client.commands.map(a => {
                     return {
-                        command: a.data.name,
-                        description: a.data.description
+                        command: a.data.name.slice(0, 31),
+                        description: a.data.description.slice(0, 255)
                     };
-                }));
+                });
+                await client.telegram.setMyCommands(commands);
             })
                 .catch(e => {
                 (0, post_1.default)("Something when bot is loading went wrong!", "E", "red", "red");
@@ -116,11 +117,10 @@ if (client.config.source.anti_crash) {
 exports.default = client;
 /**
  * @copyright
- * Coded by Sobhan-SRZA (mr.sinre) | https://github.com/Sobhan-SRZA
- * @copyright
- * Work for Persian Caesar | https://dsc.gg/persian-caesar
- * @copyright
- * Please Mention Us "Persian Caesar", When Have Problem With Using This Code!
- * @copyright
+ * Code by Sobhan-SRZA (mr.sinre) | https://github.com/Sobhan-SRZA
+ * Developed for Persian Caesar | https://github.com/Persian-Caesar | https://dsc.gg/persian-caesar
+ *
+ * If you encounter any issues or need assistance with this code,
+ * please make sure to credit "Persian Caesar" in your documentation or communications.
  */ 
 //# sourceMappingURL=index.js.map
