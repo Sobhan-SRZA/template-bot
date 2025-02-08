@@ -1,13 +1,13 @@
 export default interface packageJSON {
- name: string;
- version: string;
- author: string;
- description: string;
- main: string;
- license: string;
- dependencies: {
-  telegraf: string;
- }
+    name: string;
+    version: string;
+    author: string;
+    description: string;
+    main: string;
+    license: string;
+    dependencies: {
+        telegraf: string;
+    }
 }
 /**
  * @copyright

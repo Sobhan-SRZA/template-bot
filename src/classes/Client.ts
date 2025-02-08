@@ -1,9 +1,9 @@
-import CommandType, { Categories } from "../types/command";
-import config from "../../config";
-import { QuickDB } from "quick.db";
-import { Telegraf } from "telegraf";
 import { Collection } from "./Collection";
 import { MyContext } from "../types/MessageContext";
+import { Telegraf } from "telegraf";
+import { QuickDB } from "quick.db";
+import CommandType, { Categories } from "../types/command";
+import config from "../../config";
 
 export default class TelegramClient extends Telegraf<MyContext> {
     commands: Collection<string, CommandType>;
@@ -24,7 +24,7 @@ export default class TelegramClient extends Telegraf<MyContext> {
         this.commands
             .filter(cmd => cmd.category === category_name)
             .forEach((cmd) => {
-                description += `/${cmd.data.name} - \`${cmd.data.description}\`\n`;
+                description += `**/${cmd.data.name}** - ${cmd.data.description}\n`;
             });
 
         return description;
@@ -32,10 +32,9 @@ export default class TelegramClient extends Telegraf<MyContext> {
 }
 /**
  * @copyright
- * Coded by Sobhan-SRZA (mr.sinre) | https://github.com/Sobhan-SRZA
- * @copyright
- * Work for Persian Caesar | https://dsc.gg/persian-caesar
- * @copyright
- * Please Mention Us "Persian Caesar", When Have Problem With Using This Code!
- * @copyright
+ * Code by Sobhan-SRZA (mr.sinre) | https://github.com/Sobhan-SRZA
+ * Developed for Persian Caesar | https://github.com/Persian-Caesar | https://dsc.gg/persian-caesar
+ *
+ * If you encounter any issues or need assistance with this code,
+ * please make sure to credit "Persian Caesar" in your documentation or communications.
  */

@@ -1,20 +1,34 @@
-import { NarrowedContext, Scenes } from "telegraf";
-import { Message, Update } from "telegraf/typings/core/types/typegram";
+import { MaybeInaccessibleMessage, Update, User } from "telegraf/typings/core/types/typegram";
+import { Context, Scenes } from "telegraf";
+import { Collection } from "../classes/Collection";
 
-type MyContext = Scenes.WizardContext;
+// Custom session
+interface MySession extends Scenes.SceneSessionData { }
 
-export default interface MessageContext extends NarrowedContext<MyContext, {
-    message: Update.New & Update.NonChannel & Message.TextMessage;
-    update_id: number;
-}> { }
+// Custom telegraf context
+interface MyContext extends Context, Scenes.SceneContext<MySession> { }
 
+// Rewrite the type by myself
+interface CtxCallbackQuery {
+    id: string;
+    from: User;
+    message?: MaybeInaccessibleMessage;
+    inline_message_id?: string;
+    chat_instance: string;
+    data: string;
+    game_short_name: string;
+}
+
+// Export other types
 export type {
-    MyContext
+    MyContext,
+    CtxCallbackQuery
 }
 /**
  * @copyright
- * Coded by Sobhan-SRZA and Aria Fendereski | https://github.com/Sobhan-SRZA | https://github.com/ariafi
- * @copyright
- * Work for Vixium Team | https://discord.gg/vefvUNyPQu
- * @copyright
+ * Code by Sobhan-SRZA (mr.sinre) | https://github.com/Sobhan-SRZA
+ * Developed for Persian Caesar | https://github.com/Persian-Caesar | https://dsc.gg/persian-caesar
+ *
+ * If you encounter any issues or need assistance with this code,
+ * please make sure to credit "Persian Caesar" in your documentation or communications.
  */
