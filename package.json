@@ -1,35 +1,28 @@
 {
-  "name": "template-bot",
-  "version": "1.2.0",
-  "description": "Scaffolding out a Telegram bot",
-  "author": "Vitaly Domnikov <oss@gvitaly.codes>",
-  "license": "MIT",
-  "main": "index.js",
-  "repository": {
-    "url": "git+ssh://git@github.com/telegraf/template-bot.git",
-    "type": "git"
-  },
+  "name": "telegram-bot-handler",
+  "version": "2.0.0",
+  "author": "Sobhan-SRZA (mr.sinre) & Persian Caesar",
+  "description": "A handler for telegraf.js with best performance.",
+  "main": "dist/index.js",
+  "license": "BSD-3-Clause",
   "scripts": {
-    "test": "eslint ."
-  },
-  "engines": {
-    "node": ">=8.5.0"
-  },
-  "files": [
-    "sao.js",
-    "telegram",
-    "template"
-  ],
-  "dependencies": {
-    "camelcase": "^5.0.0",
-    "superb": "^4.0.0"
+    "build": "tsc",
+    "start:build": "npm run build && node .",
+    "start": "node .",
+    "dev": "npx nodemon -x ts-node -e ts src"
   },
   "devDependencies": {
-    "eslint": "^6.7.1",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-node": "^10.0.0",
-    "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-standard": "^4.0.0"
+    "@types/node": "^22.5.0",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.2.4",
+    "tslib": "^2.8.1",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.4.7",
+    "quick.db": "^9.1.7",
+    "telegraf": "^4.16.3",
+    "write-file-atomic": "^6.0.0"
   }
 }
